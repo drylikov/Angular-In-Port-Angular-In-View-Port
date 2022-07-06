@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "stripInternal": true,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "outDir": "./dist",
+    "lib": [
+      "es2016",
+      "dom"
+    ]
+  },
+  "files": [
+    "./src/lib/index.ts"
+  ],
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true,
+    "genDir": "aot"
+  }
+}

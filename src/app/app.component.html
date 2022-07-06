@@ -1,0 +1,65 @@
+<div id="menu">
+  <div id="menu-content">
+    <h1> Individual </h1>
+    <pre class="menu-json" [innerHtml]="stateIndividual | jsonbeauty"></pre>
+    <button (click)="triggerCustom()" >Trigger </button>
+    <h1> Container </h1>
+    <pre class="menu-json" [innerHtml]="stateContainer | jsonbeauty"></pre>
+    <h1> Individual Wrapped </h1>
+    <pre class="menu-json" [innerHtml]="stateIndividualWrapped | jsonbeauty"></pre>
+    <h1> Container Wrapped </h1>
+    <pre class="menu-json" [innerHtml]="stateContainerWrapped | jsonbeauty"></pre>
+    <h1> Container Best Wrapped </h1>
+    <pre class="menu-json" [innerHtml]="stateContainerBestWrapped | jsonbeauty"></pre>
+  </div>
+</div>
+
+<div id="container">
+  <div id="container-content">
+
+
+    <div in-view (inview)="inViewIndividual($event)" class="box" [trigger]="trigger">
+      Individual
+    </div>
+
+    <div class="separator"></div>
+
+    <div in-view-container (inview)="inViewContainer($event)" [trigger]="trigger">
+      <div in-view-item *ngFor="let item of items; let i = index;" [id]="index" [data]="item" class="box">
+        {{ item.name }}
+      </div>
+    </div>
+
+
+    <div class="separator"></div>
+
+    <div #individualwrapped class="boxes">
+      <div class="boxes-content">
+        <div in-view (inview)="inViewIndividualWrapped($event)" [scrollELement]="elementIndividualWrapped" class="box">
+          Individual Wrapped
+        </div>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="boxes" in-view-container (inview)="inViewContainerWrapped($event)" [scrollWindow]="false">
+      <div class="boxes-content">
+        <div in-view-item *ngFor="let item of items; let i = index;" [id]="index" [data]="item" class="box">
+          {{ item.name }}
+        </div>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="boxes" in-view-container (inview)="inViewContainerBestWrapped($event)" [scrollWindow]="false" [bestMatch]="true">
+      <div class="boxes-content">
+        <div in-view-item *ngFor="let item of items; let i = index;" [id]="index" [data]="item" class="box">
+          {{ item.name }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
